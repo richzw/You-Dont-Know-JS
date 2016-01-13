@@ -33,6 +33,18 @@ Under what circumstances would you want to use `Array.of(..)` instead of just cr
 
 If you have a callback that's supposed to wrap argument(s) passed to it in an array, `Array.of(..)` fits the bill perfectly. That's probably not terribly common, but it may scratch an itch for you.
 
+```js
+// Makes sense when you can't use a literal, such this case...
+var o = (function( ArrayCtor, ...rest ) {
+  return ArrayCtor( rest );
+})( Array, 10 );
+
+// Using Array.of:
+var o = (function( Ctor, args ) {
+  return Ctor( ...args );
+})( Array.of, args );
+```
+
 The other scenario is if you subclass `Array` (see "Classes" in Chapter 3) and want to be able to create and initialize elements in an instance of your subclass, such as:
 
 ```js
