@@ -172,12 +172,22 @@ Just as we've seen above with the other natives, these constructor forms should 
 
 ### `Array(..)`
 
+The `Array(..)` constructor can be called in two ways: 
+
+- a list of values to be used as values for array elements,
+
 ```js
 var a = new Array( 1, 2, 3 );
 a; // [1, 2, 3]
-
 var b = [1, 2, 3];
 b; // [1, 2, 3]
+```
+
+- one single numeric value giving the initial length:
+
+```js
+var b = new Array(3);
+b; // [undefined × 3]
 ```
 
 **Note:** The `Array(..)` constructor does not require the `new` keyword in front of it. If you omit it, it will behave as if you have used it anyway. So `Array(1,2,3)` is the same outcome as `new Array(1,2,3)`.
